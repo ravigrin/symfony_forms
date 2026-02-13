@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Если запрашивается существующий файл — отдаем его как есть
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # Если запрашивается существующая директория — отдаем её как есть
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Всё остальное отправляем в public/index.php (Symfony)
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+

@@ -1,0 +1,125 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="header">
+        <h1>Формы регистрации и обратной связи</h1>
+        <p>Заполните формы ниже для регистрации или отправки сообщения</p>
+    </div>
+
+    <div class="columns">
+        <!-- Левая колонка - Форма регистрации -->
+        <div class="column">
+            <h2>Регистрация</h2>
+            <form id="registrationForm" novalidate>
+                <div class="form-group" id="reg_name_group">
+                    <label for="registration_name">Имя</label>
+                    <input 
+                        type="text" 
+                        id="registration_name" 
+                        name="name" 
+                        placeholder="Введите ваше имя"
+                        required
+                    >
+                    <div class="error" id="reg_name_error"></div>
+                </div>
+
+                <div class="form-group" id="reg_email_group">
+                    <label for="registration_email">Email</label>
+                    <input 
+                        type="email" 
+                        id="registration_email" 
+                        name="email" 
+                        placeholder="example@email.com"
+                        required
+                    >
+                    <div class="error" id="reg_email_error"></div>
+                </div>
+
+                <div class="form-group" id="reg_phone_group">
+                    <label for="registration_phone">Телефон</label>
+                    <input 
+                        type="text" 
+                        id="registration_phone" 
+                        name="phone" 
+                        placeholder="+79001234567"
+                        required
+                    >
+                    <div class="error" id="reg_phone_error"></div>
+                </div>
+
+                <div class="form-group" id="reg_password_group">
+                    <label for="registration_password">Пароль</label>
+                    <input 
+                        type="password" 
+                        id="registration_password" 
+                        name="password" 
+                        placeholder="Минимум 6 символов"
+                        required
+                    >
+                    <div class="error" id="reg_password_error"></div>
+                </div>
+
+                <div class="form-group" id="reg_confirm_group">
+                    <label for="registration_confirm_password">Повторите пароль</label>
+                    <input 
+                        type="password" 
+                        id="registration_confirm_password" 
+                        name="confirmPassword" 
+                        placeholder="Повторите пароль"
+                        required
+                    >
+                    <div class="error" id="reg_confirm_error"></div>
+                </div>
+
+                <button type="submit" class="btn-submit">Зарегистрироваться</button>
+            </form>
+
+            <div id="registrationAlerts"></div>
+            
+            <div id="registrationData" class="data-display" style="display: none;">
+                <h3>Зарегистрированные пользователи:</h3>
+                <div id="registrationDataList"></div>
+            </div>
+        </div>
+
+        <!-- Правая колонка - Форма обратной связи -->
+        <div class="column">
+            <h2>Обратная связь</h2>
+            <form id="contactForm" novalidate>
+                <div class="form-group" id="contact_email_group">
+                    <label for="contact_email">Email</label>
+                    <input 
+                        type="email" 
+                        id="contact_email" 
+                        name="email" 
+                        placeholder="example@email.com"
+                        required
+                    >
+                    <div class="error" id="contact_email_error"></div>
+                </div>
+
+                <div class="form-group" id="contact_message_group">
+                    <label for="contact_message">Сообщение</label>
+                    <textarea 
+                        id="contact_message" 
+                        name="message" 
+                        placeholder="Введите ваше сообщение (минимум 10 символов)"
+                        required
+                    ></textarea>
+                    <div class="error" id="contact_message_error"></div>
+                </div>
+
+                <button type="submit" class="btn-submit">Отправить</button>
+            </form>
+
+            <div id="contactAlerts"></div>
+            
+            <div id="contactData" class="data-display" style="display: none;">
+                <h3>Отправленные сообщения:</h3>
+                <div id="contactDataList"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
